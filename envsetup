@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# init micromamba in the current shell
+eval "$(micromamba shell hook --shell bash)"
+
+if [[ "$ACTIVATE" ]] ; then
+  micromamba activate "$ACTIVATE"
+else 
+  micromamba activate bio
+fi
+
+# run the command passed as arguments on the command line
+"$@"
